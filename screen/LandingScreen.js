@@ -1,8 +1,12 @@
 import React from 'react';
 import {Text, TouchableOpacity, SafeAreaView} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 export default function LandingScrren(props) {
+  const navigation = useNavigation();
+
   function gotoSignUp() {
+    navigation.navigate('Register');
     console.log('goto Sign up');
   }
 

@@ -1,36 +1,34 @@
-import React, {Component} from 'react';
-import {View, Button, TextInput, Text} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {SafeAreaView, Button, TextInput, Text} from 'react-native';
 
-// funtion onSignUp = () => {
-//   console.log('12212');
-// };
+export default function Register() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-export function Register() {
-  this.state = {
-    email: '',
-    password: '',
-    name: '',
-  };
+  function onSignUp() {}
 
-  onSignUp() = {};
+  useEffect(() => {
+    console.log('end render!!');
+    console.log(name);
+    return () => {
+      console.log('use effect retrun log');
+      console.log(name);
+    };
+  });
 
   return (
-    <View>
+    <SafeAreaView style={{flex: 1}}>
       <Text>Register</Text>
-      <TextInput
-        placeholder="name"
-        onChangeText={(name) => this.setState({name})}
-      />
-      <TextInput
-        placeholder="email"
-        onChangeText={(email) => this.setState({email})}
-      />
+      <Text>name = {name}</Text>
+      <TextInput placeholder="name" onChangeText={(val) => setName(val)} />
+      <TextInput placeholder="email" onChangeText={(val) => setEmail(val)} />
       <TextInput
         placeholder="password"
         secureTextEntry={true}
-        onChangeText={(password) => this.setState({password})}
+        onChangeText={(val) => setPassword(val)}
       />
-      <Button title="Sing UP" onPress={() => this.onSignUp()} />
-    </View>
+      <Button title="Sing UP" onPress={() => onSignUp()} />
+    </SafeAreaView>
   );
 }
